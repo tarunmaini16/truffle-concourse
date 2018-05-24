@@ -1,0 +1,26 @@
+---
+resources:
+  - name: concourse-example
+    type: git
+    source: &repo-source
+      uri: https://github.com/tarunmaini16/truffle-concourse.git
+      branch: master
+jobs:
+  - name: install-dependencies
+    plan:
+      - get: concourse-example
+        trigger: true
+  - name: run-tests
+    plan:
+      - get: concourse-example
+        trigger: true
+        passed:
+           - install-dependencies
+      - task: run the test suite
+        platform: linux
+          image: "docker:///node#4.2.3"
+          run:
+            path: sh
+              args:
+              - npm install truffle -g
+              - truffle test
