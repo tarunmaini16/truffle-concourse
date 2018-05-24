@@ -1,0 +1,15 @@
+// pragma solidity ^0.4.21;
+
+// import "truffle/Assert.sol";
+// import "../contracts/Math.sol";
+
+// contract MathTest {
+
+//     function testAddShouldReturnZero() public{
+
+//         Math math = new Math();
+//         uint expected = 0;    
+//         Assert.equal(math.add(), expected , "INITIAL ADD VALUE SHOULD BE 0");
+//     }
+
+// }
